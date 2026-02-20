@@ -30,4 +30,5 @@ public class Circle implements DrawingObject {
     public double getX() {
         return x;
     }
+    public static void main(string[] args)
 }
