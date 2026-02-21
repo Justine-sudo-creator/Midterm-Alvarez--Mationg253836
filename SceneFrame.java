@@ -10,11 +10,9 @@ public class SceneFrame {
     private JButton button;
     private SceneCanvas sceneCanvas;
 
-    public SceneFrame(int w, int h) {
-        width = w;
-        height = h;
+    public SceneFrame() {
         frame = new JFrame();
-        sceneCanvas = new SceneCanvas(width, height);
+        sceneCanvas = new SceneCanvas();
         button = new JButton("CLick me");
     }
 
