@@ -12,13 +12,15 @@ public class MusicNote implements DrawingObject{
     private Color color;
     
     public void draw(Graphics2D g2d){
+        noteHead1 = new Circle(x, y, size, color);
+        noteHead2 = new Circle(x, y, size, color);
 
     }
 
     public void adjust(double distance){
 
     }
-
+    
     public double getX(){
         return x;
     }
