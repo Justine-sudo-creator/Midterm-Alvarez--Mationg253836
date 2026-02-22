@@ -28,8 +28,8 @@ public class Headphones implements DrawingObject{
         phone1 = new Rectangle(x-15, y+69.6, 31, 42.7, color, true);
         phone2 = new Rectangle(x+116.2, y+69.6, 31, 42.7, color, true);
 
-        sidePhone1 = new Square(x-21.8, y+79, 27, grey);
-        sidePhone2 = new Square(x+128.9, y+79, 27, grey);
+        sidePhone1 = new Square(x-21.8, y+79, 27, grey, true);
+        sidePhone2 = new Square(x+128.9, y+79, 27, grey, true);
 
         handleOut = new Rectangle(x, y, 116.2, 10.1, Color.BLACK, false);
         handleIn = new Rectangle(x+3.9, y+2, 124.4, 6.4, grey, false);
