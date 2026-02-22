@@ -56,7 +56,7 @@ public class MusicNote implements DrawingObject{
     public void adjust(double distance){
 
     }
-
+    
     public double getX(){
         return x;
     }
