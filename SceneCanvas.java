@@ -8,9 +8,7 @@ public class SceneCanvas extends JComponent{
     public SceneCanvas() {
         this.setPreferredSize(new Dimension(800,600));
         elements = new ArrayList<DrawingObject>();
-        elements.add(new MusicNote(200, 200, 50,5, Color.BLUE));
-
-        elements.add(new MusicNote(400, 400, 100,5, Color.RED));
+        elements.add(new Headphones(331.8, 219.1, Color.decode("#cb6ce6")));
     }
 
     @Override
