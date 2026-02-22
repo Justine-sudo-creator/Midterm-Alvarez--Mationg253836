@@ -19,6 +19,10 @@ public class Circle implements DrawingObject {
         Ellipse2D.Double circle = new Ellipse2D.Double(x, y, size, size);
         g2d.setColor(color);
         g2d.fill(circle);
+
+        g2d.setColor(Color.BLACK);
+        g2d.setStroke(new BasicStroke(3));
+        g2d.draw(circle);
     }
 
     @Override
