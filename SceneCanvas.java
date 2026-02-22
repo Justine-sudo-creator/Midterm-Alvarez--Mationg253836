@@ -2,12 +2,9 @@ import java.awt.*;
 import javax.swing.*;
 
 public class SceneCanvas extends JComponent{
-    private int width;
-    private int height;
 
-    public SceneCanvas(int w, int h) {
-        width = w;
-        height = h;
+    public SceneCanvas() {
+        this.setPreferredSize(new Dimension(800,600));
     }
 
     @Override
