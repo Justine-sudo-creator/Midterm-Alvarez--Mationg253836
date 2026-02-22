@@ -12,11 +12,7 @@ public class Hair implements DrawingObject {
         this.color = color;
         this.pieces = new ArrayList<DrawingObject>();
 
-        this.pieces.add(new SemiCircle(x, y, 100.0, 100.0, color, 0.0));
-
-        this.pieces.add(new Pentagon(x + 50, y + 10, 39.1, 39.1, 30, color, 145.4));
-        
-        this.pieces.add(new QuarterCircle(x + 20, y + 5, 45, 90, color, false, 20.0));
+        this.pieces.add(new SemiCircle(x, y, 126.0, 53.0, 0.0, color, false, 0.0));
         
     }
 

@@ -2,35 +2,45 @@ import java.awt.*;
 import java.awt.geom.*;
 
 public class SemiCircle implements DrawingObject {
-    private double x, y, width, height, rotation;
+    private double x; 
+    private double y;
+    private double width;
+    private double height;
+    private double startAngle;
+    private double rotation;
     private Color color;
+    private boolean hasOutline;
 
-    public SemiCircle(double x, double y, double height, double width, Color color, double rotation) {
+    public SemiCircle(double x, double y, double width, double height, double startAngle, Color color, boolean hasOutline, double rotation) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
+        this.startAngle = startAngle;
         this.color = color;
+        this.hasOutline = hasOutline;
         this.rotation = rotation;
     }
 
     @Override
     public void draw(Graphics2D g2d) {
-        AffineTransform old = g2d.getTransform();
-        g2d.translate(x + width / 2, y);
+        AffineTransform reset = g2d.getTransform();
+
+        g2d.translate(x + width / 2, y + height);
         g2d.rotate(Math.toRadians(rotation));
 
-        Path2D.Double semiCircle = new Path2D.Double();
-        semiCircle.moveTo(-width / 2, 0);
-        semiCircle.quadTo(0, -height, width / 2, 0);
-        semiCircle.closePath();
+        Arc2D.Double semi = new Arc2D.Double(-width / 2, -height, width, height*2, startAngle, 180, Arc2D.PIE);
 
         g2d.setColor(color);
-        g2d.fill(semiCircle);
-        g2d.setColor(Color.BLACK);
-        g2d.draw(semiCircle);
+        g2d.fill(semi);
 
-        g2d.setTransform(old);
+        if (hasOutline) {
+            g2d.setColor(Color.BLACK);
+            g2d.setStroke(new BasicStroke(2));
+            g2d.draw(semi);
+        }
+
+        g2d.setTransform(reset);
     }
 
     @Override
