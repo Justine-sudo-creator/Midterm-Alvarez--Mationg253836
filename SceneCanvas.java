@@ -8,9 +8,11 @@ public class SceneCanvas extends JComponent{
     public SceneCanvas() {
         this.setPreferredSize(new Dimension(800,600));
         elements = new ArrayList<>();
-        elements.add(new Face(348.4, 245.1, Color.decode("#e8ad53")));
-        elements.add(new Headphones(331.8, 219.1, Color.decode("#cb6ce6")));
-        elements.add(new Hair(335.8, 216.7, Color.BLACK));
+        //elements.add(new Face(348.4, 245.1, Color.decode("#e8ad53")));
+        //elements.add(new Headphones(331.8, 219.1, Color.decode("#cb6ce6")));
+        //elements.add(new Hair(335.8, 216.7, Color.BLACK));
+
+        elements.add(new Head(348.4, 245.1, Color.decode("#e8ad53"), Color.decode("#cb6ce6"), Color.BLACK));
     }
 
     @Override
