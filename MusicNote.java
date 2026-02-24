@@ -28,8 +28,8 @@ public class MusicNote implements DrawingObject{
 
         double height = size*2;
 
-        noteHead1 = new Circle(x, y, size, color);
-        noteHead2 = new Circle(x+spacing, y, size, color);
+        noteHead1 = new Circle(x, y, size, color, true);
+        noteHead2 = new Circle(x+spacing, y, size, color, true);
         stem1out = new Line(headCenterX1, headCenterY1, headCenterX1, headCenterY1-height, thickness+6, Color.BLACK);
         stem1in = new Line(headCenterX1, headCenterY1, headCenterX1, headCenterY1-height, thickness, color);
 

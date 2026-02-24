@@ -19,8 +19,10 @@ public class SceneCanvas extends JComponent{
         Color skin = Color.decode("#e8ad53");
         Color hoodie = Color.decode("#1800ad");
         Color hp = Color.decode("#cb6ce6");
+        Color panel = Color.decode("#1db954");
 
         elements.add(new Character(348.4, 245.1, skin, hoodie, hp));
+        elements.add(new TopPanel(0, 0, panel));
     }
 
     @Override
