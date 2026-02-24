@@ -7,13 +7,15 @@ public class Triangle implements DrawingObject {
     private double width;
     private double tip;
     private Color color;
+    private boolean hasOutline;
 
-    public Triangle(double x, double y, double width, double tip, Color color) {
+    public Triangle(double x, double y, double width, double tip, Color color, boolean hasOutline) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.tip = tip;
         this.color = color;
+        this.hasOutline = hasOutline;
     }
 
     @Override
@@ -26,6 +28,12 @@ public class Triangle implements DrawingObject {
 
         g2d.setColor(color);
         g2d.fill(triangle);
+
+        if (hasOutline) {
+            g2d.setColor(Color.BLACK);
+            g2d.setStroke(new BasicStroke(2));
+            g2d.draw(triangle);
+        }
     }
 
     @Override
