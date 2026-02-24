@@ -28,8 +28,8 @@ public class Torso implements DrawingObject{
 
         hood = new Oval(x, y, 171.9, 130.8, hoodieShadow, false);
         body = new Rectangle(x+3, y+53, 166.8, 189.3, hoodieColor, false);
-        chest = new Triangle(x+58.3, y+49.9, 55.4, 36.7, skinColor, false);
-        chestShadow = new Triangle(x+52.2, y+46.9, 68.8, 49.1, skinShadow, true);
+        chest = new Triangle(x+83.3, y+69.9, 55.4, 36.7, 0, skinColor, false);
+        chestShadow = new Triangle(x+84.2, y+70.9, 68.8, 49.1, 0, skinShadow, true);
         neck = new Rectangle(x+66, y+19.7, 38.6, 35, skinColor, false);
         neckShadow = new SemiCircle(x+66, y-8.7, 36.6, 24.1, 0.0, skinShadow, false, 180.0);
         neckOutline1 = new Line(x+67, y+19.7, x+67, y+50.9, 2, Color.BLACK);

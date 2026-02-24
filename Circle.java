@@ -6,8 +6,9 @@ public class Circle implements DrawingObject {
     private double y;
     private double size;
     private Color color;
+    private boolean hasOutline;
 
-    public Circle(double x, double y, double size, Color color) {
+    public Circle(double x, double y, double size, Color color, boolean hasOutline) {
         this.x = x;
         this.y = y;
         this.size = size;
@@ -20,9 +21,11 @@ public class Circle implements DrawingObject {
         g2d.setColor(color);
         g2d.fill(circle);
 
-        g2d.setColor(Color.BLACK);
-        g2d.setStroke(new BasicStroke(3));
-        g2d.draw(circle);
+        if (hasOutline){
+            g2d.setColor(Color.BLACK);
+            g2d.setStroke(new BasicStroke(3));
+            g2d.draw(circle);
+        }
     }
 
     @Override
