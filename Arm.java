@@ -45,6 +45,10 @@ public class Arm implements DrawingObject {
     public void adjust(double distance) {
     }
 
+    public void setX(double newX) {
+        this.x = newX;
+    }
+
     public double getX() {
         return x;
     }

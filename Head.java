@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.*;
 
 public class Head implements DrawingObject{
     private Headphones headphones;
@@ -18,19 +19,29 @@ public class Head implements DrawingObject{
         this.headphonesColor = headphonesColor;
         this.hairColor = hairColor;
 
-        headphones = new Headphones(x-16.6, y-26, headphonesColor);
-        hair = new Hair(x-12.6, y-28.4, hairColor);
-        face = new Face(x, y, skinColor);
+        headphones = new Headphones(-16.6, -26, headphonesColor);
+        hair = new Hair(-12.6, -28.4, hairColor);
+        face = new Face(0, 0, skinColor);
     }
     
     public void draw(Graphics2D g2d){
+        AffineTransform old = g2d.getTransform();
+        
+        g2d.translate(x, y);
+
         face.draw(g2d);
         headphones.draw(g2d);
         hair.draw(g2d);
+
+        g2d.setTransform(old);
     }
 
     public void adjust(double distance){
 
+    }
+
+    public void setX(double newX) {
+        this.x = newX;
     }
 
     public double getX(){

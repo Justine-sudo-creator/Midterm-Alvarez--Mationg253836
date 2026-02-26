@@ -2,8 +2,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class SceneCanvas extends JComponent{
+
+public class SceneCanvas extends JComponent {
+    private Character c;
     private ArrayList<DrawingObject> elements;
+
 
     public SceneCanvas() {
         this.setPreferredSize(new Dimension(800,600));
@@ -21,10 +24,11 @@ public class SceneCanvas extends JComponent{
         Color hp = Color.decode("#cb6ce6");
         Color panel = Color.decode("#1db954");
 
-        elements.add(new Character(348.4, 245.1, skin, hoodie, hp));
+        c = new Character(348.4, 245.1, skin, hoodie, hp);
+
+        elements.add(c);
         elements.add(new TopPanel(0, 0, panel));
     }
-
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -36,5 +40,14 @@ public class SceneCanvas extends JComponent{
         for (DrawingObject obj : elements) {
             obj.draw(g2d);
         }
+    }
+
+    public void moveCharacter(double distance) {
+        c.adjust(distance);
+        repaint();
+    }
+
+    public Character getCharacter() {
+        return c;
     }
 }

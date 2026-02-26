@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.*;
 
 public class Torso implements DrawingObject{
     private Oval hood;
@@ -26,19 +27,23 @@ public class Torso implements DrawingObject{
         Color skinShadow = getShadowColor(skinColor);
         Color hoodieShadow = getShadowColor(hoodieColor);
 
-        hood = new Oval(x, y, 171.9, 130.8, hoodieShadow, false);
-        body = new Rectangle(x+3, y+53, 166.8, 189.3, hoodieColor, false);
-        chest = new Triangle(x+83.3, y+69.9, 55.4, 36.7, 0, skinColor, false);
-        chestShadow = new Triangle(x+84.2, y+70.9, 68.8, 49.1, 0, skinShadow, true);
-        neck = new Rectangle(x+66, y+19.7, 38.6, 35, skinColor, false);
-        neckShadow = new SemiCircle(x+66, y-8.7, 36.6, 24.1, 0.0, skinShadow, false, 180.0);
-        neckOutline1 = new Line(x+67, y+19.7, x+67, y+50.9, 2, Color.BLACK);
-        neckOutline2 = new Line(x+103.6, y+19.7, x+103.6, y+50.9, 2, Color.BLACK);
-        lace1 = new Line(x+68.1, y+68.4, x+68.9, y+128.8, 3, Color.WHITE);
-        lace2 = new Arc(x+75, y+92.4, 63.4, 15.5, 3, Color.WHITE, 100);
+        hood = new Oval(0, 0, 171.9, 130.8, hoodieShadow, false);
+        body = new Rectangle(3, 53, 166.8, 189.3, hoodieColor, false);
+        chest = new Triangle(83.3, 69.9, 55.4, 36.7, 0, skinColor, false);
+        chestShadow = new Triangle(84.2, 70.9, 68.8, 49.1, 0, skinShadow, true);
+        neck = new Rectangle(66, 19.7, 38.6, 35, skinColor, false);
+        neckShadow = new SemiCircle(66, 8.7, 36.6, 24.1, 0.0, skinShadow, false, 180.0);
+        neckOutline1 = new Line(67, 19.7, 67, 50.9, 2, Color.BLACK);
+        neckOutline2 = new Line(103.6, 19.7, 103.6, 50.9, 2, Color.BLACK);
+        lace1 = new Line(68.1, 68.4, 68.9, 128.8, 3, Color.WHITE);
+        lace2 = new Arc(75, 92.4, 63.4, 15.5, 3, Color.WHITE, 100);
     }
     
     public void draw(Graphics2D g2d){
+        AffineTransform old = g2d.getTransform();
+        
+        g2d.translate(x, y);
+
         hood.draw(g2d);
         body.draw(g2d);
         chestShadow.draw(g2d);
@@ -49,10 +54,16 @@ public class Torso implements DrawingObject{
         neckShadow.draw(g2d);
         neckOutline1.draw(g2d);
         neckOutline2.draw(g2d);
+
+        g2d.setTransform(old);
     }
 
     public void adjust(double distance){
 
+    }
+
+    public void setX(double newX) {
+        this.x = newX;
     }
 
     public double getX(){
