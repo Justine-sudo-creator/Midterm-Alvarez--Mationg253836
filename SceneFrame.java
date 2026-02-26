@@ -39,6 +39,7 @@ public class SceneFrame {
                 Object o = ae.getSource();
                 if(o == button) {
                   sceneCanvas.moveCharacter(100);
+                  sceneCanvas.moveMusicNote(50);
 
                 }
                 sceneCanvas.repaint();

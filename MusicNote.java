@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.geom.*;
 
 public class MusicNote implements DrawingObject{
     private Circle noteHead1;
@@ -41,6 +42,10 @@ public class MusicNote implements DrawingObject{
     }
     
     public void draw(Graphics2D g2d){
+        AffineTransform old = g2d.getTransform();
+        
+        g2d.translate(x, y);
+
         handleout.draw(g2d);
         stem1out.draw(g2d);
         stem2out.draw(g2d);
@@ -51,10 +56,12 @@ public class MusicNote implements DrawingObject{
 
         noteHead1.draw(g2d);
         noteHead2.draw(g2d);
+
+        g2d.setTransform(old);
     }
 
     public void adjust(double distance){
-
+        this.x += distance;
     }
     
     public double getX(){

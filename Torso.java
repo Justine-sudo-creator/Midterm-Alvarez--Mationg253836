@@ -32,7 +32,7 @@ public class Torso implements DrawingObject{
         chest = new Triangle(83.3, 69.9, 55.4, 36.7, 0, skinColor, false);
         chestShadow = new Triangle(84.2, 70.9, 68.8, 49.1, 0, skinShadow, true);
         neck = new Rectangle(66, 19.7, 38.6, 35, skinColor, false);
-        neckShadow = new SemiCircle(66, 8.7, 36.6, 24.1, 0.0, skinShadow, false, 180.0);
+        neckShadow = new SemiCircle(66, -5.7, 36.6, 24.1, 0.0, skinShadow, false, 180.0);
         neckOutline1 = new Line(67, 19.7, 67, 50.9, 2, Color.BLACK);
         neckOutline2 = new Line(103.6, 19.7, 103.6, 50.9, 2, Color.BLACK);
         lace1 = new Line(68.1, 68.4, 68.9, 128.8, 3, Color.WHITE);
