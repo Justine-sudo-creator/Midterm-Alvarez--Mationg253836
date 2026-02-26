@@ -5,6 +5,7 @@ import javax.swing.*;
 
 public class SceneCanvas extends JComponent {
     private Character c;
+    private MusicNote mn;
     private ArrayList<DrawingObject> elements;
 
 
@@ -25,9 +26,11 @@ public class SceneCanvas extends JComponent {
         Color panel = Color.decode("#1db954");
 
         c = new Character(348.4, 245.1, skin, hoodie, hp);
+        mn = new MusicNote(200, 200, 50, 10, Color.BLACK);
 
         elements.add(c);
         elements.add(new TopPanel(0, 0, panel));
+        elements.add(mn);
     }
     @Override
     protected void paintComponent(Graphics g) {
@@ -44,6 +47,11 @@ public class SceneCanvas extends JComponent {
 
     public void moveCharacter(double distance) {
         c.adjust(distance);
+        repaint();
+    }
+
+    public void moveMusicNote(double distance) {
+        mn.adjust(distance);
         repaint();
     }
 
