@@ -29,10 +29,14 @@ public class Character implements DrawingObject {
     @Override
     public void adjust(double distance) {
         this.x += distance;
-        
-        armAngle += 0.05;
+
+        head.setX(this.x);
+        torso.setX(this.x - 34.8);
+        leftArm.setX(this.x - 24.9);
+        rightArm.setX(this.x + 87.7);
+
+        armAngle += 0.2; 
         double swing = Math.sin(armAngle) * 15;
-        
         leftArm.setRotation(34.6 + swing);
         rightArm.setRotation(-33 - swing);
     }
