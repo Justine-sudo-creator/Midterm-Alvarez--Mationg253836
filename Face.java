@@ -1,7 +1,25 @@
+/**
+ * The Face class represents the detailed facial features of the character. 
+ * It assembles multiple Arc and Oval objects to create eyes, eyebrows, 
+ * and a mouth, while using Path2D to render a custom nose shape.
+ * * @author Justine T. Mationg (253836)
+ * @author Adrian Adam Alvarez (250266)
+ * @version February 26, 2026
+ * * I have not discussed the Java language code in my program
+ * with anyone other than my instructor or the teaching assistants
+ * assigned to this course.
+ * I have not used Java language code obtained from another student,
+ * or any other unauthorized source, either modified or unmodified.
+ * If any Java language code or documentation used in my program
+ * was obtained from another source, such as a textbook or website,
+ * that has been clearly noted with a proper citation in the comments
+ * of my program.
+ */
+
 import java.awt.*;
 import java.awt.geom.*;
 
-public class Face implements DrawingObject{
+public class Face implements DrawingObject {
     private Oval head;
     private Arc eyebrow1;
     private Arc eye1;
@@ -13,7 +31,14 @@ public class Face implements DrawingObject{
     private double y;
     private Color skinColor;
 
-    public Face(double x, double y, Color skinColor){
+    /**
+     * Constructs a Face object by initializing the positions and colors 
+     * of the head, eyes, eyebrows, and smile components.
+     * * @param x The base x-coordinate for the face.
+     * @param y The base y-coordinate for the face.
+     * @param skinColor The color used for the head component.
+     */
+    public Face(double x, double y, Color skinColor) {
         this.x = x;
         this.y = y;
         this.skinColor = skinColor;
@@ -26,7 +51,13 @@ public class Face implements DrawingObject{
         smile = new Arc(x+28.6, y+106.2, 43, 13.3, 2, Color.BLACK, 180);
     }
     
-    public void draw(Graphics2D g2d){
+    /**
+     * Draws the face and all its facial features onto the screen.
+     * This method also defines and renders a custom nose using a Bezier curve.
+     * * @param g2d The Graphics2D context used for drawing.
+     */
+    @Override
+    public void draw(Graphics2D g2d) {
         head.draw(g2d);
         eyebrow1.draw(g2d);
         eye1.draw(g2d);
@@ -46,11 +77,21 @@ public class Face implements DrawingObject{
         g2d.draw(nose);
     }
 
-    public void adjust(double distance){
-
+    /**
+     * Adjusts the state of the face. Required by the DrawingObject interface.
+     * * @param distance The value used to shift the state of the object.
+     */
+    @Override
+    public void adjust(double distance) {
+        // Implementation for facial movement can be added here.
     }
 
-    public double getX(){
+    /**
+     * Retrieves the current horizontal position of the face.
+     * * @return The x-coordinate as a double.
+     */
+    @Override
+    public double getX() {
         return x;
     }
 }
